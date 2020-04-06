@@ -1,0 +1,11 @@
+<packet>
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>devm</target>
+    <data>
+    <devm>
+        <list_device/>
+    </devm>
+    </data>
+</packet>

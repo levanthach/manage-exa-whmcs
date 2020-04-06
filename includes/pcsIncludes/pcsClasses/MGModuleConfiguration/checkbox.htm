@@ -1,0 +1,10 @@
+<div class="control-group">
+    <label class="control-label" ><?php echo $label; ?></label>
+    <div class="controls" <?php if($format == 'vertical'):?>style="overflow:hidden;padding:10px;"<?php endif;?>>
+        <?php foreach($options as $key => $odata): ?>
+            <label style="<?php if($format == 'vertical'):?>float:left;padding-top: 5px;margin-left:10px;<?php endif;?> <?php if($odata['hide']):?>display:none;<?php endif; ?>" class="checkbox"  >
+                  <input type="checkbox" value="true" data-name="<?php echo $name; ?>[<?php echo $key; ?>]" <?php if($value[$key]=='true'): ?>checked<?php endif; ?>> <?php echo $odata['name']; ?>
+           </label>
+        <?php endforeach; ?>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<packet version="4.0.0">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzapackagem</target>
+    <data>
+        <vzapackagem>
+            <list>
+                <options>
+                    <type>os</type>
+                </options>
+            </list>
+        </vzapackagem>
+    </data>
+</packet>

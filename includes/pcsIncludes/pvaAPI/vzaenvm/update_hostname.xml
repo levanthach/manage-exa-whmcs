@@ -1,0 +1,19 @@
+<packet version="4.0.0">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzaenvm</target>
+    <data>
+        <vzaenvm>
+            <set>
+                <eid><?php echo $hostID; ?></eid>
+                <config >
+                    <?php if(isset($name)): ?>
+                    <name><?php echo $name;?></name>
+                    <?php endif; ?>
+                    <hostname><?php echo $hostname; ?></hostname>
+                </config>
+            </set>
+        </vzaenvm>
+    </data>
+</packet>

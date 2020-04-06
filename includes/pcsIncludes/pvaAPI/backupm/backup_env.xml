@@ -1,0 +1,56 @@
+<ns1:packet xmlns:ns1="http://www.swsoft.com/webservices/vzl/4.0.0/protocol" xmlns:ns2="http://www.swsoft.com/webservices/vzl/4.0.0/backupm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.0.0" id="2">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <ns1:target>backupm</ns1:target>
+    <ns1:data>
+        <ns1:backupm>
+            <ns1:backup_env>
+                <ns1:env_list>
+                    <ns1:eid><?php echo $hostID ?></ns1:eid>
+                </ns1:env_list>
+                <ns1:backup_options xsi:type="ns2:backup_optionsType">
+                    <ns2:type><?php echo $type; ?></ns2:type>
+                    <ns2:compression><?php echo $compression; ?></ns2:compression>
+                    <ns2:description><?php echo base64_encode($description); ?></ns2:description>
+                    <?php if($remove): ?>
+                        <ns2:remove/>
+                    <?php endif; ?>
+                    <?php if($include_list): ?>
+                        <ns2:exclude_list>
+                            <?php foreach($include_list as $path): ?>
+                                <ns3:path><?php echo $path; ?></ns3:path>
+                            <?php endforeach; ?>
+                        </ns2:exclude_list>
+                    <?php endif;?>
+                    <?php if($exclude_list): ?>
+                        <ns2:exclude_list>
+                            <?php foreach($exclude_list as $path): ?>
+                                <ns3:path><?php echo $path; ?></ns3:path>
+                            <?php endforeach; ?>
+                        </ns2:exclude_list>
+                    <?php endif;?>
+                </ns1:backup_options>
+                <?php if(!empty($servers)): ?>
+                    <?php foreach($servers as $server): ?>
+                        <backup_server xsi:type="ns1:connection_infoType">
+                            <ns1:protocol><?php echo $server['protocol']; ?></ns1:protocol>
+                            <ns1:address><?php echo $server['host']; ?></ns1:address>
+                            <?php if(!empty($server['username'])): ?>
+                                <ns1:login>
+                                    <ns1:name><?php echo base64_encode($server['username']); ?></ns1:name>
+                                </ns1:login>
+                            <?php endif; ?>
+                            <?php if(!empty($server['password'])): ?>
+                                <ns1:password><?php echo base64_encode($server['password']); ?></ns1:password>
+                            <?php endif; ?>
+                            <?php if(!empty($server['port'])): ?>
+                                <ns1:port><?php echo $server['port']; ?></ns1:port>
+                            <?php endif; ?>
+                        </backup_server>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </ns1:backup_env>
+        </ns1:backupm>
+    </ns1:data>
+</ns1:packet>

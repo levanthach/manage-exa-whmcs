@@ -1,0 +1,11 @@
+<packet version="4.0.0" >
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>res_log</target>
+    <data>
+        <res_log>
+            <get_log_info/>
+        </res_log>
+    </data>
+</packet>

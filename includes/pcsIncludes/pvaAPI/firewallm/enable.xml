@@ -1,0 +1,11 @@
+<packet version="4.0.0">
+    <dst>
+        <host><?php echo $hostID; ?></host>
+    </dst>
+    <target>firewallm</target>
+    <data>
+        <firewallm>
+            <enable/>
+        </firewallm>
+    </data>
+</packet>

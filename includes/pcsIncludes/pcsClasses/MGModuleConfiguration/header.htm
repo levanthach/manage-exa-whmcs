@@ -1,0 +1,13 @@
+<link href="../includes/pcsIncludes/pcsClasses/MGModuleConfiguration/style_v7.css" rel="stylesheet">
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+       jQuery('#customConfigOptions').parentsUntil('table').hide();
+
+
+          $(document).bind("ajaxComplete", function(e){
+              if($("#tblModuleSettings #mg-wrapper").size() >1)
+                $("#tblModuleSettings #mg-wrapper:first").remove();
+         });
+ 
+    });
+</script>

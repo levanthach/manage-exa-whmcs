@@ -1,0 +1,18 @@
+<packet xmlns:ns2="http://www.swsoft.com/webservices/vzl/4.0.0/networkm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.0.0">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzanetworkm</target>
+    <data>
+        <vzanetworkm>
+            <list>
+                <?php if($type == 'vlan'): ?>
+                            <net_device xsi:type="ns2:net_vlanType"/>
+                <?php endif; ?>
+                <?php if($type == 'bridged'): ?>
+                            <net_device xsi:type="ns2:net_bridgeType"/>
+                <?php endif; ?>
+            </list>
+        </vzanetworkm>
+    </data>
+</packet>

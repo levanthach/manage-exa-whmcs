@@ -1,0 +1,12 @@
+<packet version="4.0.0" id="2">
+    <target>server_group</target>
+    <data>
+        <server_group>
+            <get_list>
+                <?php if($type): ?>
+                    <type><?php echo $type; ?></type>
+                <?php endif; ?>
+            </get_list>
+        </server_group>
+    </data>
+</packet>

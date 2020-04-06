@@ -1,0 +1,22 @@
+<packet>
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>processm</target>
+    <data>
+        <processm>
+            <execute>
+                <?php foreach($commands as $command): ?>
+                    <argv><?php echo base64_encode($command) ?></argv>
+                <?php endforeach; ?>
+                <cred>
+                    <chroot>/</chroot>
+                </cred>
+                <stdio>
+                    <output/>
+                    <error/>
+                </stdio>
+            </execute>
+        </processm>
+    </data>
+</packet>

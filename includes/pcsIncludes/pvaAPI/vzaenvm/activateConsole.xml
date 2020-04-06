@@ -1,0 +1,16 @@
+<packet xmlns:ns1="http://www.swsoft.com/webservices/vza/4.0.0/vzaenvm" xmlns:ns2="http://www.swsoft.com/webservices/vzl/4.0.0/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" log="on" version="4.5.0">
+    <dst>
+        <host>local</host>
+    </dst>
+    <target>vzaenvm</target>
+    <data>
+        <vzaenvm>
+            <set_vnc_server>
+                <eid><?php echo $hostID ?></eid>
+                <mode xsi:type="ns1:vnc_auto">
+                    <password><?php echo $consolePassword ?></password>
+                </mode>
+            </set_vnc_server>
+        </vzaenvm>
+    </data>
+</packet>

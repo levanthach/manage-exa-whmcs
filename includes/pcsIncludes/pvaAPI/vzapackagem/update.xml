@@ -1,0 +1,16 @@
+<packet xmlns:ns1="http://www.swsoft.com/webservices/vza/4.0.0/vzatypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.0.0">
+    <target>vzapackagem</target>
+    <data>
+        <vzapackagem>
+            <update>
+                <eid>44db5492-7942-f743-8cdf-4435928f309c</eid>
+                <installation_package>
+                    <package xsi:type="ns1:package_vztemplateType">
+                        <ns1:name>.mysql</ns1:name>
+                        <ns1:os_template>0</ns1:os_template>
+                    </package>
+                </installation_package>
+            </update>
+        </vzapackagem>
+    </data>
+</packet>

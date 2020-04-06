@@ -1,0 +1,16 @@
+<packet version="4.0.0" id="2">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzaenvm</target>
+    <data>
+        <vzaenvm>
+            <stop>
+                <eid><?php echo $hostID; ?></eid>
+                <?php if(isset($force)): ?>
+                    <force/>
+                <?php endif; ?>
+            </stop>
+        </vzaenvm>
+    </data>
+</packet>

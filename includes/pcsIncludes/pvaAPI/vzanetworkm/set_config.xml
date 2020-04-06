@@ -1,0 +1,28 @@
+<packet version="4.0.0" id="2">
+    <target>vzanetworkm</target>
+    <data>
+        <vzanetworkm>
+            <set_config>
+                <net_config>
+                    <?php foreach($ranges as $range): ?><range><class_id><?php echo $range['class']; ?></class_id><ip_address><ip><?php echo $range['ip']; ?></ip><netmask><?php echo $range['mask']; ?></netmask></ip_address></range><?php endforeach; ?>
+                    <?php foreach($classes as $class): ?>
+                        <class>
+                            <id><?php echo $class['id']; ?></id>
+                            <rate><?php echo $class['rate']; ?></rate>
+                            <totalrate><?php echo $class['totalrate']; ?></totalrate>
+                        </class>
+                    <?php endforeach; ?>
+                    <?php foreach($interfaces as $interfaces): ?>
+                        <interface>
+                            <net_device_id><?php echo $interfaces['net_device_id']; ?></net_device_id>
+                            <bandwidth><?php echo $interfaces['bandwidth']; ?></bandwidth>
+                        </interface>
+                    <?php endforeach; ?>
+                    <?php if($shapping): ?>
+                        <shaping/>
+                    <?php endif; ?>
+                </net_config>
+            </set_config>
+        </vzanetworkm>
+    </data>
+</packet>

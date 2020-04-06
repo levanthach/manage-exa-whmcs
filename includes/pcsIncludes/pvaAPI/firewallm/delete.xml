@@ -1,0 +1,46 @@
+<packet version="4.0.0">
+    <dst>
+        <host><?php echo $hostID; ?></host>
+    </dst>
+    <target>firewallm</target>
+    <data>
+        <firewallm>
+            <delete>
+                <rule>
+                    <name><?php echo $name; ?></name>
+                    <protocol><?php echo $protocol; ?></protocol>
+                    <chain><?php echo $chain; ?></chain>
+                    <policy><?php echo $policy; ?></policy>
+                    <?php if($src): ?>
+                        <src_addr>
+                            <host><?php echo $src['host']; ?></host>
+                            <mask><?php echo $src['mask']; ?></mask>
+                        </src_addr>
+                    <?php endif; ?>
+                    <?php if($dst): ?>
+                        <dst_addr>
+                            <host><?php echo $dst['host']; ?></host>
+                            <mask><?php echo $dst['mask']; ?></mask>
+                        </dst_addr>
+                    <?php endif; ?>
+                    <?php if($srcStart): ?>
+                        <src_ports>
+                            <first_port><?php echo $srcStart; ?></first_port>
+                            <?php if($srcEnd): ?>
+                                <last_port><?php echo $srcEnd; ?></last_port>
+                            <?php endif;?>
+                        </src_ports>
+                    <?php endif; ?>
+                    <?php if($dstStart): ?>
+                        <dst_ports>
+                            <first_port><?php echo $dstStart; ?></first_port>
+                            <?php if($dstEnd): ?>
+                                <last_port><?php echo $dstEnd; ?></last_port>
+                            <?php endif;?>
+                        </dst_ports>
+                    <?php endif; ?>
+                </rule>
+            </delete>
+        </firewallm>
+    </data>
+</packet>

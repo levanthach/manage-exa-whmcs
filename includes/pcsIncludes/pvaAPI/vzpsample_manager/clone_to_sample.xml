@@ -1,0 +1,14 @@
+<packet xmlns:ns1="http://www.swsoft.com/webservices/vzl/4.0.0/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="4" type="2" version="4.5.0" progress="off">
+    <target>vzpsample_manager</target>
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <data>
+        <vzpsample_manager>
+            <clone_to_sample>
+                <eid><?php echo $hostID ?></eid>
+                <force/>
+            </clone_to_sample>
+        </vzpsample_manager>
+    </data>
+</packet>

@@ -1,0 +1,11 @@
+<packet id="1" version="4.0.0">
+    <data>
+        <system>
+            <login>
+                <name><?php echo base64_encode($name); ?></name>
+                <realm>00000000-0000-0000-0000-000000000000</realm>
+                <password><?php echo base64_encode($password); ?></password>
+            </login>
+        </system>
+    </data>
+</packet>

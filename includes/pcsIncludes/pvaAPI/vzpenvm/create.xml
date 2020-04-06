@@ -1,0 +1,170 @@
+<packet version="4.0.0" id="2" xmlns:ns1="http://www.swsoft.com/webservices/vzp/4.0.0/vzptypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzpenvm</target>
+    <data>
+        <vzpenvm>
+            <create>
+                <config >
+                    <name><?php echo $name;?></name>
+                    <hostname><?php echo $hostname; ?></hostname>
+                    <?php if($cpuunits): ?>
+                        <cpu_count><?php echo $cpuunits; ?></cpu_count>
+                    <?php endif; ?>
+                    <?php if(!empty($cpulimit_mhz)): ?>
+                        <cpu_limit_mhz><?php echo $cpulimit_mhz; ?></cpu_limit_mhz>
+                    <?php endif; ?>
+                    <?php if(!empty($cpulimit_percent)): ?>
+                        <cpu_limit><?php echo $cpulimit_percent; ?></cpu_limit>
+                    <?php endif; ?>
+                    <?php if($memory): ?>
+                        <memory_size><?php echo $memory; ?></memory_size>
+                    <?php endif; ?>
+                    <?php if($video_memory): ?>
+                        <video_memory_size><?php echo $video_memory; ?></video_memory_size>
+                    <?php endif; ?>
+                    <?php if($io_limit): ?>
+                        <io_limit><?php echo $io_limit; ?></io_limit>
+                    <?php endif; ?>
+                    <?php if($iops_limit): ?>
+                        <iops_limit><?php echo $iops_limit; ?></iops_limit>
+                    <?php endif; ?>
+                    <base_sample_id><?php echo $baseSampleId; ?></base_sample_id>
+                    <origin_sample><?php echo $templateName; ?></origin_sample>
+                    <auto_start><?php echo $auto_start; ?></auto_start>
+                    <?php if($home_path): ?>
+                        <home_path><?php echo $home_path; ?></home_path>
+                    <?php endif; ?>
+                    <?php if(isset($netRate)): ?>
+                        <?php foreach($netRate as $rate): ?>
+                            <interface_rate>
+                                <class_id><?php echo $rate['class']; ?></class_id>
+                                <rate><?php echo $rate['rate']; ?></rate>
+                            </interface_rate>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    <device_list>
+                        <?php foreach($hddList as $disk): ?>
+                            <device xsi:type="ns1:vm_hard_disk_device">
+                                <boot_sequence_index>0</boot_sequence_index>
+                                <is_bootable/><is_boot_in_use/>
+                                <enabled>1</enabled>
+                                <connected>1</connected>
+                                <emulation_type>1</emulation_type>
+                                <sys_name><?php echo $disk['sys_name']; ?></sys_name>
+                                <interface_type><?php echo ($disk['interface_type'])?$disk['interface_type']:0; ?></interface_type>
+                                <stack_index>0</stack_index>
+                                <disk_type>1</disk_type>
+                                <size><?php echo $disk['size']; ?></size>
+                                <resize_fs>1</resize_fs>
+                            </device>
+                        <?php endforeach; ?>
+                       <?php foreach($networkDevice as $device): ?>
+                            <device xsi:type="ns1:vm_network_device">
+                            <?php if($device['networkId'] == 'Routed'): ?>
+                                <enabled>1</enabled>
+                                <connected>1</connected>
+                                <emulation_type>5</emulation_type>
+                                <adapter_type>2</adapter_type>
+                                <?php if(isset($device['id'])): ?>
+                                    <device_index><?php echo $device['id']; ?></device_index>
+                                <?php endif; ?>
+                                <?php foreach($device['ips'] as $net): ?>
+                                    <ip_address>
+                                            <ip><?php echo ($net['ip'])?$net['ip']:'0.0.0.0'; ?></ip>
+                                            <?php if($net['netmask']): ?>
+                                                <netmask><?php echo $net['netmask']; ?></netmask>
+                                            <?php endif; ?>
+                                    </ip_address>
+                                <?php endforeach; ?>
+                                <?php foreach($device['nameservers'] as $ns): ?>
+                                    <?php if($ns): ?>
+                                        <nameserver><?php echo $ns; ?></nameserver>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <enabled>1</enabled>
+                                <connected>1</connected>
+                                <emulation_type>2</emulation_type>
+                                <bound_adapter_index>0</bound_adapter_index>
+                                <adapter_type>2</adapter_type>
+                                <virtual_network_id><?php echo $device['networkId']; ?></virtual_network_id>
+                                <?php if(isset($device['id'])): ?>
+                                    <device_index><?php echo $device['id']; ?></device_index>
+                                <?php endif; ?>
+                                <?php foreach($device['ips'] as $net): ?>
+                                    <ip_address>
+                                            <ip><?php echo ($net['ip'])?$net['ip']:'0.0.0.0'; ?></ip>
+                                            <?php if($net['netmask']): ?>
+                                                <netmask><?php echo $net['netmask']; ?></netmask>
+                                            <?php endif; ?>
+                                    </ip_address>
+                                <?php endforeach; ?>
+                                <?php foreach($device['nameservers'] as $ns): ?>
+                                    <?php if($ns): ?>
+                                        <nameserver><?php echo $ns; ?></nameserver>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                                <?php if($device['gateway']): ?>
+                                    <default_gateway><?php echo $device['gateway']; ?></default_gateway>
+                                <?php endif;?>
+                            <?php endif; ?>
+                            </device>
+                        <?php endforeach; ?>
+                        <?php foreach($cdromList as $cdrom): ?>
+                        <device xsi:type="ns1:vm_optical_disk_device">
+                            <connected><?php echo $cdrom['connected'] ?></connected>
+                            <enabled><?php echo $cdrom['enabled'] ?></enabled>
+                            <emulation_type><?php echo $cdrom['emulation_type'] ?></emulation_type>
+                            <remote><?php echo $cdrom['remote'] ?></remote>
+                            <is_bootable/><is_boot_in_use/>
+                            <boot_sequence_index><?php echo $cdrom['boot_sequence_index'] ?></boot_sequence_index>
+                            <device_index><?php echo $cdrom['device_index'] ?></device_index>
+                            <interface_type><?php echo $cdrom['interface_type'] ?></interface_type>
+                            <stack_index><?php echo $cdrom['stack_index'] ?></stack_index>
+                            <passthrough><?php echo $cdrom['passthrough'] ?></passthrough>
+                        </device>
+                        <?php endforeach; ?>
+                        <?php foreach($usbList as $usb): ?>
+                        <device xsi:type="ns1:vm_usb_device">
+                            <connected><?php echo $usb['connected'] ?></connected>
+                            <enabled><?php echo $usb['enabled'] ?></enabled>
+                            <emulation_type><?php echo $usb['emulation_type'] ?></emulation_type>
+                            <remote><?php echo $usb['remote'] ?></remote>
+                            <device_index><?php echo $usb['device_index'] ?></device_index>
+                            <auto_connect_devices><?php echo $usb['auto_connect_devices'] ?></auto_connect_devices>
+                        </device>
+                        <?php endforeach; ?>
+                        <?php foreach($floppyList as $floppy): ?>
+                        <device xsi:type="ns1:vm_floppy_disk_device">
+                            <connected><?php echo $floppy['connected'] ?></connected>
+                            <enabled><?php echo $floppy['enabled'] ?></enabled>
+                            <emulation_type><?php echo $floppy['emulation_type'] ?></emulation_type>
+                            <remote><?php echo $floppy['remote'] ?></remote>
+                            <sys_name><?php echo $floppy['sys_name']; ?></sys_name>
+                            <friendly_name><?php echo $floppy['friendly_name']; ?></friendly_name>
+                            <summary_info><?php echo $floppy['summary_info']; ?></summary_info>
+                            <boot_sequence_index><?php echo $floppy['boot_sequence_index'] ?></boot_sequence_index>
+                            <device_index><?php echo $floppy['device_index'] ?></device_index>
+                        </device>
+                        <?php endforeach; ?>
+                        <?php foreach($serialList as $serial): ?>
+                        <device xsi:type="ns1:vm_serial_port_device">
+                            <connected><?php echo $serial['connected'] ?></connected>
+                            <enabled><?php echo $serial['enabled'] ?></enabled>
+                            <emulation_type><?php echo $serial['emulation_type'] ?></emulation_type>
+                            <remote><?php echo $serial['remote'] ?></remote>
+                            <sys_name><?php echo $serial['sys_name']; ?></sys_name>
+                            <friendly_name><?php echo $serial['friendly_name']; ?></friendly_name>
+                            <summary_info><?php echo $serial['summary_info']; ?></summary_info>
+                            <device_index><?php echo $serial['device_index'] ?></device_index>
+                            <socket_mode><?php echo $serial['socket_mode'] ?></socket_mode>
+                        </device>
+                        <?php endforeach; ?>
+                    </device_list>
+                </config>
+            </create>
+        </vzpenvm>
+    </data>
+</packet>

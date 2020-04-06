@@ -1,0 +1,8 @@
+<packet version="4.0.0">
+    <target>vzanetworkm</target>
+    <data>
+        <vzanetworkm>
+            <get_config/>
+        </vzanetworkm>
+    </data>
+</packet>

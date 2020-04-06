@@ -1,0 +1,14 @@
+<packet version="4.5.0" progress="off" log="on">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzpenvm</target>
+    <data>
+        <vzpenvm>
+            <switch_to_snapshot>
+                <eid><?php echo $hostID ?></eid>
+                <uid><?php echo $snapshotID ?></uid>
+            </switch_to_snapshot>
+        </vzpenvm>
+    </data>
+</packet>

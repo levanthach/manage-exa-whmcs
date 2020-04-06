@@ -1,0 +1,18 @@
+<packet progress="on" log="on" id="2" version="4.0.0">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>backupm</target>
+    <data>
+        <backupm>
+            <restore_env>
+                <backup_id><?php echo $backupID; ?></backup_id>
+                <restore_options>
+                    <?php if($force): ?>
+                        <force/>
+                    <?php endif; ?>
+                </restore_options>
+            </restore_env>
+        </backupm>
+    </data>
+</packet>

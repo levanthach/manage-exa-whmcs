@@ -1,0 +1,23 @@
+<packet xmlns:ns1="http://www.swsoft.com/webservices/vza/4.0.0/vzatypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" progress="on" version="4.0.0">
+    <target>vzapackagem</target>
+    <data>
+        <vzapackagem>
+            <migrate>
+                <packages>
+                    <package xsi:type="ns1:package_vztemplateType">
+                        <ns1:name>fdsfsdfds</ns1:name>
+                        <ns1:os_template>1</ns1:os_template>
+                    </package>
+                </packages>
+                <dst>
+                    <address>192.237.246.245</address>
+                    <login>
+                        <name><?php echo base64_encode('root'); ?></name>
+                        <realm>00000000-0000-0000-0000-000000000000</realm>
+                    </login>
+                    <password><?php echo base64_encode('modulesgarden15'); ?></password>
+                </dst>
+            </migrate>
+        </vzapackagem>
+    </data>
+</packet>

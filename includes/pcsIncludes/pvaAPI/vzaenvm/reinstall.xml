@@ -1,0 +1,15 @@
+<packet version="4.0.0" id="2">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzaenvm</target>
+    <data>
+        <vzaenvm>
+            <recover_template>
+                <eid><?php echo $hostID; ?></eid>
+                <password><?php echo base64_encode($password); ?></password>
+                <clean/>
+            </recover_template>
+        </vzaenvm>
+    </data>
+</packet>

@@ -1,0 +1,13 @@
+<packet version="4.0.0">
+    <dst>
+        <host><?php echo $hostID; ?></host>
+    </dst>
+    <target>firewallm</target>
+    <data>
+        <firewallm>
+            <get>
+              <eid></eid>
+            </get>
+        </firewallm>
+    </data>
+</packet>

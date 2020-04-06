@@ -1,0 +1,7 @@
+<packet version="4.0.0" id="2">
+    <data>
+        <system> 
+            <get_eid/>
+        </system>
+    </data>
+</packet>

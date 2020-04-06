@@ -1,0 +1,8 @@
+<packet version="4.0.0">
+    <target>vzpnetworkm</target>
+    <data>
+        <vzpnetworkm>
+            <get_config/>
+        </vzpnetworkm>
+    </data>
+</packet>

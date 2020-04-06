@@ -1,0 +1,12 @@
+<div class="control-group" <?php if($hide):?>style="display:none;"<?php endif;?>>
+    <label class="control-label" for="config_field_<?php echo $name; ?>"><?php echo $label; ?></label>
+    <div class="controls">
+        <h4 style="margin:7px 1px;"><?php echo $description; ?></h4>
+        <?php foreach($options as $key => $fname): ?>
+            <label class="radio">
+                <input data-name="<?php echo $name; ?>" <?php if($depends):?>class="depends"<?php endif;?> type="radio" name="configField[<?php echo $name; ?>]" value="<?php echo $key; ?>" <?php if($key === $value):?>checked<?php elseif ($ReadOnly):?>disabled<?php endif;?> >
+                <?php echo $fname; ?>
+            </label>
+        <?php endforeach; ?>
+    </div>
+</div>

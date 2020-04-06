@@ -1,0 +1,22 @@
+<packet version="4.0.0">
+    <target>server_group</target>
+    <data>
+        <server_group>
+            <get_info>
+                <?php if($nodeID): ?>
+                    <?php if(is_array($nodeID)): ?>
+                        <?php foreach($nodeID as $id): ?>
+                            <eid><?php echo $id; ?></eid>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <eid><?php echo $nodeID; ?></eid>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <status/>
+                <?php if(!isset($onlyStatus)): ?>
+                    <config/>
+                <?php endif; ?>
+            </get_info>
+        </server_group>
+    </data>
+</packet>

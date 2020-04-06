@@ -1,0 +1,10 @@
+<packet version="4.0.0" id="2">
+    <target><?php echo $target; ?></target>
+    <data>
+        <envm>
+            <get_info>
+                <config/>
+            </get_info>
+        </envm>
+    </data>
+</packet>

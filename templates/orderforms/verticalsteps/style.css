@@ -1,0 +1,295 @@
+#order-verticalsteps {
+    margin: 0;
+    padding: 0;
+    min-height: 50px;
+}
+
+#order-verticalsteps h1 {
+    font-size: 2em;
+}
+
+#order-verticalsteps h2 {
+    font-size: 1.5em;
+    color: #666;
+}
+
+#order-verticalsteps .textcenter {
+    text-align: center;
+}
+
+#order-verticalsteps .errorbox {
+    margin: 0 0 15px 0;
+    padding: 10px;
+    width: auto;
+    background-color: #FBEEEB;
+    border: 1px dashed #cc0000;
+    color: #cc0000;
+    font-weight: bold;
+    text-align: center;
+}
+
+#order-verticalsteps .stepsbar {
+    float: none;
+    margin-bottom: 40px;
+}
+
+#order-verticalsteps .stepsbar .step {
+	text-align: center;
+    position: relative;
+    float: left;
+    background-color: #00b249;
+    border-radius: 0;
+    color: #fff;
+    font-size: 15px;
+    margin: 0;
+    padding: 9px 27px 10px 30px;
+    min-width: 150px;
+    border-top: 1px solid #fff;
+}
+#order-verticalsteps .stepsbar .step:first-child {
+	padding-left:10px;
+}
+#order-verticalsteps .stepsbar .step::after {
+	content: "";
+    border-width: 1px;
+    border-style: solid;
+    border-color: white white transparent transparent;
+    background: #00b249;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    right: -5px;
+    -moz-transform: rotate(45deg) translateY(-50%);
+    -ms-transform: rotate(45deg) translateY(-50%);
+    -webkit-transform: rotate(45deg) translateY(-50%);
+    transform: rotate(45deg) translateY(-50%);
+}
+#order-verticalsteps .stepsbar .step a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#order-verticalsteps .stepsbar .step.active {
+    background-color: #444;
+    color: #fff;
+}
+#order-verticalsteps .stepsbar .active::after {
+	background: #444 !important;
+}
+
+#order-verticalsteps .stepsbar .step.active a {
+    color: #fff;
+}
+
+#order-verticalsteps .stepsbar .step.stepover {
+    background: #9c9898;
+}
+#order-verticalsteps .stepsbar .step.stepover::after {
+    background: #9c9898;
+}
+
+#order-verticalsteps .maincontent {
+	width: auto;
+    margin-left: 0;
+}
+
+#order-verticalsteps .maincontent .orderbox {
+	margin: 0 0 5px 0;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+#order-verticalsteps .maincontent .orderbox  .orderboxpadding {
+	font-size:14px;
+}
+#order-verticalsteps .maincontent .orderbox  .glyphicon , .panel-body.product-desc-tv .glyphicon{
+	color: #8BC34A;
+}
+
+#order-verticalsteps .maincontent .orderbox.ordernum {
+    margin: 0 auto;
+    padding: 15px;
+    width: 60%;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#order-verticalsteps .maincontent .domainoptions {
+    margin: 20px 40px;
+    padding: 0;
+}
+
+#order-verticalsteps .maincontent .domainoptions div {
+    margin: 0;
+    padding: 2px;
+}
+
+#order-verticalsteps .maincontent table {
+    width: 100%;
+}
+
+#order-verticalsteps .maincontent table tr td {
+    padding: 3px 10px 5px 10px;
+}
+
+#order-verticalsteps .maincontent table.styled {
+    border-spacing: 3px;
+}
+
+#order-verticalsteps .maincontent table.styled tr th {
+    padding: 5px;
+    background-color: #E6ECF8;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+}
+
+#order-verticalsteps .maincontent table.styled tr td {
+    border-bottom: 1px solid #ccc;
+}
+
+#order-verticalsteps .maincontent .ordertotal {
+    float: right;
+    margin: 25px 0 0 0;
+    padding: 8px 20px;
+    background-color: #efefef;
+    text-align: right;
+    font-size: 1.5em;
+    color: #666;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+}
+
+#order-verticalsteps .maincontent .gateway {
+    margin: 0;
+    padding: 5px;
+    border: 0;
+    text-align: center;
+}
+
+#order-verticalsteps .textgreen {
+    color: #3EB504;
+}
+
+#order-verticalsteps .textred {
+    color: #cc0000;
+}
+
+#order-verticalsteps .hidden {
+    display: none;
+}
+
+#order-verticalsteps div.left {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+#order-verticalsteps div.right {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+.panel-body.product-desc-tv {
+	font-size:14px;
+}
+.panel-body.product-desc-tv br:nth-child(odd){
+	display:none;
+}
+.sub-heading {
+	height: 0;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.sub-heading span {
+    display: inline-block;
+    position: relative;
+    padding: 0 17px;
+    top: -13px;
+    font-size: 15px;
+    color: #00b249;
+    background-color: #fff;
+    font-weight: bold;
+}
+
+.prepend-icon {
+    top: 0;
+    left: 0;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 100%;
+    font-weight: 400;
+}
+.prepend-icon .field {
+    padding-left: 36px;
+    vertical-align: top;
+    border: 1px solid #ddd;
+    display: -moz-inline-stack;
+    display: inline-block;
+    color: #626262;
+    outline: 0;
+    background: #fff;
+    height: 36px;
+    width: 100%;
+    border-radius: 1px;
+    font-size: 13px;
+}
+
+.prepend-icon .field-icon {
+    top: 1px;
+    z-index: 4;
+    width: 42px;
+    height: 36px;
+    color: inherit;
+    line-height: 36px;
+    position: absolute;
+    text-align: center;
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+    pointer-events: none;
+}
+.prepend-icon .field-icon .glyphicon  {
+	color: #777;
+}
+
+.sign-title-tv {
+	margin: 0;
+    padding: 7px;
+    background: #009e3b;
+    margin-bottom: 20px;
+	color: #fff;
+	border-radius: 2px 2px 0px 0px;
+}
+.header-lined h3{
+	margin-top: 0;
+    margin-bottom: 15px;
+    padding: 6px 0;
+    border-bottom: 1px solid #ccc;
+    font-weight: 400;
+    color: #058;
+    font-size: 20px;
+    background: #f5f5f5;
+    padding: 8px 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#mainfrm {
+    font-size: 14px;
+}

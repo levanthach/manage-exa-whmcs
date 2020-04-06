@@ -1,0 +1,15 @@
+<packet xmlns:ns1="http://www.swsoft.com/webservices/vza/4.0.0/vzatypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" progress="on" version="4.0.0">
+    <target>vzapackagem</target>
+    <data>
+        <vzapackagem>
+            <fetch>
+                <packages>
+                    <package xsi:type="ns1:package_vztemplateType">
+                        <ns1:name>.fedora-core-7-x86</ns1:name>
+                        <ns1:os_template>1</ns1:os_template>
+                    </package>
+                </packages>
+            </fetch>
+        </vzapackagem>
+    </data>
+</packet>

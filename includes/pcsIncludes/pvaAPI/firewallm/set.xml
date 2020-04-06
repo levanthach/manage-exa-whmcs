@@ -1,0 +1,47 @@
+<packet version="4.0.0">
+    <dst>
+        <host><?php echo $hostID; ?></host>
+    </dst>
+    <target>firewallm</target>
+    <data>
+        <firewallm>
+            <set>
+                <rule>
+                    <name><?php echo $name; ?></name>
+                    <protocol><?php echo $protocol; ?></protocol>
+                    <chain><?php echo $chain; ?></chain>
+                    <policy><?php echo $policy; ?></policy>
+                    <allowed><?php echo $allowed; ?></allowed>
+                    <?php if($src): ?>
+                        <src_addr>
+                            <host><?php echo $src['ip']; ?></host>
+                            <mask><?php echo $src['mask']; ?></mask>
+                        </src_addr>
+                    <?php endif; ?>
+                    <?php if($dst): ?>
+                        <dst_addr>
+                            <host><?php echo $dst['ip']; ?></host>
+                            <mask><?php echo $dst['mask']; ?></mask>
+                        </dst_addr>
+                    <?php endif; ?>
+                    <?php if($srcPort): ?>
+                        <src_ports>
+                            <first_port><?php echo $srcPort['from']; ?></first_port>
+                            <?php if($srcPort['to']): ?>
+                                <last_port><?php echo $srcPort['to']; ?></last_port>
+                            <?php endif;?>
+                        </src_ports>
+                    <?php endif; ?>
+                    <?php if($dstPort): ?>
+                        <dst_ports>
+                            <first_port><?php echo $dstPort['from']; ?></first_port>
+                            <?php if($dstPort['to']): ?>
+                                <last_port><?php echo $dstPort['to']; ?></last_port>
+                            <?php endif;?>
+                        </dst_ports>
+                    <?php endif; ?>
+                </rule>
+            </set>
+        </firewallm>
+    </data>
+</packet>

@@ -1,0 +1,63 @@
+<packet version="4.0.0" id="2">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzaenvm</target>
+    <data>
+        <vzaenvm>
+            <create>
+                <config>
+                    <name><?php echo $name;?></name>
+                    <hostname><?php echo $hostname; ?></hostname>
+                    <base_sample_id><?php echo $baseSampleId; ?></base_sample_id>
+                    <on_boot><?php echo $auto_start; ?></on_boot>
+                    <?php if($io_limit): ?>
+                        <io_limit><?php echo $io_limit; ?></io_limit>
+                    <?php endif; ?>
+                    <?php if($iops_limit): ?>
+                        <iops_limit><?php echo $iops_limit; ?></iops_limit>
+                    <?php endif; ?>
+                    <offline_management><?php if($offline_management): ?>true<?php else: ?>false<?php endif;?></offline_management>
+                    <os_template>
+                        <name><?php echo $osTemplate; ?></name>
+                    </os_template>
+                    <?php foreach($networkDevice as $device): ?>
+                        <net_device>
+                        <?php if($device['networkId'] == 'Routed'): ?>
+                            <id>venet0</id>
+                            <?php foreach($device['ips'] as $ip): ?>
+                                <ip_address>
+                                    <ip><?php echo ($ip['ip'])?$ip['ip']:'0.0.0.0'; ?></ip>
+                                    <?php if(isset($ip['netmask'])): ?>
+                                        <netmask><?php echo $ip['netmask']; ?></netmask>
+                                    <?php endif; ?>
+                                </ip_address>
+                            <?php endforeach;?>
+                            <host_routed/>
+                        <?php else: ?>
+                            <id><?php echo $device['id']; ?></id>
+                            <network_id><?php echo base64_encode($device['networkId']); ?></network_id>
+                            <?php foreach($device['ips'] as $ip): ?>
+                                <ip_address>
+                                    <ip><?php echo ($ip['ip'])?$ip['ip']:'0.0.0.0'; ?></ip>
+                                    <?php if(isset($ip['netmask'])): ?>
+                                        <netmask><?php echo $ip['netmask']; ?></netmask>
+                                    <?php endif; ?>
+                                </ip_address>
+                            <?php endforeach;?>
+                            <?php if($device['gateway']): ?>
+                                <default_gateway><?php echo $device['gateway']; ?></default_gateway>
+                            <?php endif;?>
+                       <?php endif;?>
+                       </net_device>
+                    <?php endforeach; ?>
+                    <?php foreach($nameservers as $ns): ?>
+                        <?php if($ns): ?>
+                            <nameserver><?php echo $ns; ?></nameserver>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </config>
+            </create>
+        </vzaenvm>
+    </data>
+</packet>

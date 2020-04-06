@@ -1,0 +1,7 @@
+<div class="control-group" <?php if($hide):?>style="display:none;"<?php endif;?>>
+    <label class="control-label" for="config_field_<?php echo $name; ?>"><?php echo $label; ?></label>
+    <div class="controls">
+        <input type="text" id="config_field_<?php echo $name; ?>" value="<?php echo $value; ?>"  data-name="<?php echo $name; ?>" <?php if($depends):?>class="depends"<?php endif;?>>
+        <span class="help-inline"><?php echo $description; ?></span>
+    </div>
+</div>

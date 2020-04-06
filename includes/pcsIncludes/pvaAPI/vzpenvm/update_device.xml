@@ -1,0 +1,27 @@
+<packet version="4.0.0" id="2" xmlns:ns1="http://www.swsoft.com/webservices/vzp/4.0.0/vzptypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzpenvm</target>
+    <data>
+        <vzpenvm>
+            <update_device>
+                <eid><?php echo $hostID; ?></eid>
+                <sys_name><?php echo $sys_name; ?></sys_name>
+                <device xsi:type="ns1:vm_hard_disk_device">
+                    <boot_sequence_index>0</boot_sequence_index>
+                    <is_bootable/><is_boot_in_use/>
+                    <enabled>1</enabled>
+                    <connected>1</connected>
+                    <emulation_type>1</emulation_type>
+                    <sys_name><?php echo $sys_name; ?></sys_name>
+                    <interface_type><?php echo ($interface_type)?$interface_type:0; ?></interface_type>
+                    <stack_index>0</stack_index>
+                    <disk_type>1</disk_type>
+                    <size><?php echo $size; ?></size>
+                    <resize_fs/>
+                </device>
+            </update_device>
+        </vzpenvm>
+    </data>
+</packet>

@@ -1,0 +1,11 @@
+<div class="control-group" <?php if($hide):?>style="display:none;"<?php endif;?>>
+    <label class="control-label" for="config_field_<?php echo $name; ?>"><?php echo $label; ?></label>
+    <div class="controls">
+        <select multiple="multiple" id="config_field_<?php echo $name; ?>" name="configField[<?php echo $name; ?>]" data-name="<?php echo $name; ?>" <?php if($depends):?>class="depends"<?php endif;?>>
+            <?php foreach($options as $key => $name): ?>
+                <option <?php if(is_array($value)) if(in_array($key,$value)):?>selected<?php endif; else if($value === 'all'):?>selected<?php endif; ?>  value="<?php echo $key; ?>"><?php echo $name; ?></option>
+            <?php endforeach; ?>
+        </select>
+        <span class="help-inline"><?php echo $description; ?></span>
+    </div>
+</div>

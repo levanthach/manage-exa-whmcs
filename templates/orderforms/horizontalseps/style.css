@@ -1,0 +1,337 @@
+#order-horizontalseps {
+    margin: 0;
+    padding: 0;
+    min-height: 50px;
+}
+
+#order-horizontalseps h1 {
+	font-size: 20px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+#order-horizontalseps h2 {
+    font-size: 16px;
+    color: #666;
+    font-weight: bold;
+}
+
+#order-horizontalseps .textcenter {
+    text-align: center;
+}
+
+#order-horizontalseps .errorbox {
+    margin: 0 0 15px 0;
+    padding: 10px;
+    width: auto;
+    background-color: #FBEEEB;
+    border: 1px dashed #cc0000;
+    color: #cc0000;
+    font-weight: bold;
+    text-align: center;
+}
+
+#order-horizontalseps .stepsbar {
+    float: none;
+    margin-bottom: 40px;
+}
+
+#order-horizontalseps .stepsbar .step {
+	text-align: center;
+    position: relative;
+    float: left;
+    background-color: #00b249;
+    border-radius: 0;
+    color: #fff;
+    font-size: 15px;
+    margin: 0;
+    padding: 9px 27px 10px 30px;
+    min-width: 150px;
+    border-top: 1px solid #fff;
+}
+#order-horizontalseps .stepsbar .step:first-child {
+	padding-left:10px;
+}
+#order-horizontalseps .stepsbar .step::after {
+	content: "";
+    border-width: 1px;
+    border-style: solid;
+    border-color: white white transparent transparent;
+    background: #00b249;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    right: -5px;
+    -moz-transform: rotate(45deg) translateY(-50%);
+    -ms-transform: rotate(45deg) translateY(-50%);
+    -webkit-transform: rotate(45deg) translateY(-50%);
+    transform: rotate(45deg) translateY(-50%);
+}
+#order-horizontalseps .stepsbar .step a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#order-horizontalseps .stepsbar .step.active {
+    background-color: #444;
+    color: #fff;
+}
+#order-horizontalseps .stepsbar .active::after {
+	background: #444 !important;
+}
+
+#order-horizontalseps .stepsbar .step.active a {
+    color: #fff;
+}
+
+#order-horizontalseps .stepsbar .step.stepover {
+    background: #9c9898;
+}
+#order-horizontalseps .stepsbar .step.stepover::after {
+    background: #9c9898;
+}
+
+#order-horizontalseps .maincontent {
+	width: auto;
+    margin-left: 0;
+}
+
+#order-horizontalseps .maincontent .orderbox {
+	margin: 0 0 5px 0;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+#order-horizontalseps .maincontent .orderbox  .orderboxpadding {
+	font-size:14px;
+}
+#order-horizontalseps .maincontent .orderbox  .glyphicon , .panel-body.product-desc-tv .glyphicon{
+	color: #8BC34A;
+}
+
+#order-horizontalseps .maincontent .orderbox.ordernum {
+    margin: 0 auto;
+    padding: 15px;
+    width: 60%;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#order-horizontalseps .maincontent .domainoptions {
+    margin: 20px 40px;
+    padding: 0;
+}
+
+#order-horizontalseps .maincontent .domainoptions div {
+    margin: 0;
+    padding: 2px;
+}
+
+#order-horizontalseps .maincontent table {
+    width: 100%;
+}
+
+#order-horizontalseps .maincontent table tr td {
+    padding: 3px 10px 5px 10px;
+}
+
+#order-horizontalseps .maincontent table.styled {
+    border-spacing: 3px;
+}
+
+#order-horizontalseps .maincontent table.styled tr td:first-child {
+    text-align: left;
+}
+
+#order-horizontalseps .maincontent table.styled tr th {
+    padding: 5px;
+    background-color: #E6ECF8;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+}
+
+#order-horizontalseps .maincontent table.styled tr td {
+    border-bottom: 1px solid #ccc;
+}
+
+#order-horizontalseps .maincontent .ordertotal {
+    float: right;
+    margin: 25px 0 0 0;
+    padding: 8px 20px;
+    background-color: #efefef;
+    text-align: right;
+    font-size: 1.5em;
+    color: #666;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+}
+
+#order-horizontalseps .maincontent .gateway {
+    margin: 0;
+    padding: 5px;
+    border: 0;
+    text-align: center;
+}
+
+#order-horizontalseps .textgreen {
+    color: #3EB504;
+}
+
+#order-horizontalseps .textred {
+    color: #cc0000;
+}
+
+#order-horizontalseps .hidden {
+    display: none;
+}
+
+#order-horizontalseps div.left {
+    /* float: left; */ 
+    margin: 0;
+    padding: 0;
+}
+#order-horizontalseps div.right {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+
+#order-horizontalseps table.cart {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 1px;
+}
+
+#order-horizontalseps table.cart th {
+    font-weight: bold;
+    font-size: 15px;
+    padding: 15px 0px 5px 0px;
+    border-bottom: 2px solid #ccc;
+}
+
+#order-horizontalseps table.cart .carttableproduct td {
+    border-top: 1px solid #EBEBEB;
+}
+
+#order-horizontalseps .cartedit {
+    font-size: 13px;
+    color: #337ab7;
+}
+
+#order-horizontalseps .cartremove {
+    font-size: 13px;
+    color: #cc0000;
+}
+
+#order-horizontalseps table.cart tr.subtotal td {
+    border-top: 1px solid #EBEBEB;
+    padding: 4px;
+}
+
+#order-horizontalseps table.cart tr.total td {
+    color: #e21b10;
+    border-bottom: 0;
+    font-weight: normal;
+    padding: 4px;
+}
+
+#order-horizontalseps .cartbuttons {
+    float: right;
+    margin: 0;
+    padding: 120px 0 0 0;
+    width: 100%;
+    text-align: right;
+}
+
+#order-horizontalseps .signuptype.active {
+    font-weight: bold;
+    background: #009e3b;
+}
+
+#order-horizontalseps .signuptype {
+    background-color: #efefef;
+    border: 1px solid #ccc;
+    color: #000;
+    border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin: 0 6px -2px 15px;
+	cursor: pointer;
+}
+
+#order-horizontalseps .signupfields.padded {
+    padding: 15px;
+    text-align: center;
+}
+
+
+.confdomains-tv input[type="text"],.confdomains-tv select,.confdomains-tv textarea {
+	width:75% !important;
+}
+
+.confdomains-tv input[type="radio"]{
+	top: 3px;
+}
+
+/*Custom CSS by Thach*/
+.signupfields {
+    padding: 0 40px;
+    text-align: justify;
+    line-height: 25px;
+}
+#ccinputform h4 {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+#ccinputform .desc-bank {
+    border: 1px solid;
+    width: 502px;
+    margin-bottom: 20px;
+}
+.desc-bank .name_bank{
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px
+}
+.address_bank, .boss-acount, .number-acount {
+    padding: 0 10px;
+}
+#ccinputform2 .payment_content {
+    border: 1px solid;
+    width: 500px;
+    padding: 0 10px;
+}
+#ccinputform2 .payment_content h4 {
+    font-weight: bold;
+}
+#ccinputform, #ccinputform2 {
+    border: 1px dashed gray;
+    padding: 40px 40px;
+    background: #dff0d8;
+    margin-bottom: 40px;
+}
+
+@media (max-width:570px) {
+	#order-horizontalseps .stepsbar .step {
+		width: 100%;
+		
+	}
+	
+	#order-horizontalseps .stepsbar .step::after {
+	}
+}

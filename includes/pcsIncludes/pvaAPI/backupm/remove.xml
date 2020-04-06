@@ -1,0 +1,13 @@
+<packet version="4.0.0">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>backupm</target>
+    <data>
+        <backupm>
+            <remove>
+                <backup_id><?php echo $backupID; ?></backup_id>
+            </remove>
+        </backupm>
+    </data>
+</packet>

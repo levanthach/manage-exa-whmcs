@@ -1,0 +1,13 @@
+<packet version="4.0.0" id="2">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzpsample_manager</target>
+    <data>
+        <vzpsample_manager>
+            <reinstall>
+                <eid><?php echo $hostID; ?></eid>
+            </reinstall>
+        </vzpsample_manager>
+    </data>
+</packet>

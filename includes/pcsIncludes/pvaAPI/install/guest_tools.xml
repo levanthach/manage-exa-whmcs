@@ -1,0 +1,13 @@
+<packet version="4.0.0" id="2" xmlns:ns1="http://www.swsoft.com/webservices/vzp/4.0.0/vzptypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzpenvm</target>
+    <data>
+        <vzpenvm>
+            <install_tools>
+                <eid><?php echo $hostID; ?></eid>
+            </install_tools>
+        </vzpenvm>
+    </data>
+</packet>

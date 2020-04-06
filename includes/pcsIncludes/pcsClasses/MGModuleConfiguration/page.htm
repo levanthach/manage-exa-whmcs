@@ -1,0 +1,157 @@
+<div id="mg-wrapper" style="min-height: 50px;">
+        <div class="alert alert-error" <?php if(!$errors): ?>style="display:none;"<?php endif; ?>>
+            <?php echo $errors; ?>
+        </div>     
+        <div class="alert alert-success" <?php if(!$succes): ?>style="display:none;"<?php endif; ?>>
+            <?php echo $succes; ?>
+        </div> 
+    
+        <div class="form-horizontal form-condensed">
+            <?php echo $fields; ?>
+            
+        </div>
+        <div id="mgLoader" class="loader" style="display: none;"><img src="../includes/pcsIncludes/pcsClasses/MGModuleConfiguration/ajax-loader.gif" /></div>
+        <?php foreach($baseConfiguration as $key => $field): ?>
+            <input type="hidden" name="packageconfigoption[<?php echo $key; ?>]" value="<?php echo $field['value']; ?>"  data-name="<?php echo $field['name']; ?>"/>
+        <?php endforeach; ?>
+
+        <input type="hidden" name="ajaxAction" id="mg-ajax-action" value="<?php echo $ajaxAction;?>"  data-name="ajaxAction"/>
+         
+</div>
+
+<script type="text/javascript" src="../includes/pcsIncludes/pcsClasses/MGModuleConfiguration/bootstrap.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('.tooltipBTN').tooltip();                
+        
+        function catchData(action)
+        {
+            var data = {};
+            data['configurationAction'] = action;
+            jQuery('#mg-wrapper div *[data-name]').each(function(){
+                if(jQuery(this).attr('type') == 'checkbox' || jQuery(this).attr('type') == 'radio')
+                {
+                    if(jQuery(this).is(':checked'))
+                    {
+                        data[jQuery(this).attr('data-name')] = jQuery(this).val();
+                    }
+                }
+                else
+                {
+                    data[jQuery(this).attr('data-name')] = jQuery(this).val();
+                }
+               
+            });
+            data['serverGroup'] = jQuery("select[name='servergroup']").val();
+            
+            if($("#mg-ajax-action").val())
+                data['action']= $("#mg-ajax-action").val();
+           
+            return data;
+        }
+        
+        function parseJSON(json)
+        {
+            var start = json.indexOf("#JSON#");
+            json = json.substr(start+6,json.indexOf("#ENDJSON#")-start-6);
+            return jQuery.parseJSON(json);
+        }
+        
+        var allow = true;
+        jQuery('#mg-wrapper *[data-name]').change(function(){
+            jQuery('input[data-name="'+jQuery(this).attr('data-name')+'"]').val(jQuery(this).val());
+        });
+        jQuery('#mg-wrapper .depends').change(function(){
+                jQuery('#mgLoader').show();
+                jQuery.post(document.location,catchData('loadSettings'),function(json){
+                    var data = parseJSON(json);
+                    
+                    for(name in data)
+                    {
+                        field   = data[name];                       
+                        element = jQuery('#mg-wrapper div *[data-name="'+name+'"]');
+
+                        if(jQuery(element).attr('type') === 'checkbox')
+                        {
+                            parent = jQuery(element).parent();
+                        }
+                        else
+                        {
+                            parent = jQuery(element).parents('.control-group');
+                        }
+                        
+                        if(field.hide)
+                        {
+                            parent.hide();
+                        }
+                        else
+                        {
+                            parent.show();
+                        }
+                        
+                        if(jQuery(element).is('select'))
+                        {
+                            jQuery(element).html('');
+                            
+                            if(field.options !== null && field.options !== undefined)
+                            {
+                                for(x in field.options)
+                                {
+                                    jQuery(element).append('<option value="'+x+'">'+field.options[x]+'</option>');
+                                }
+                                if(field.value !== null && field.value !== undefined )
+                                {            
+                                    if(typeof field.value === 'object')
+                                    {
+                                        jQuery(element).val(jQuery.map(field.value, function (value, key) { return value; }));
+                                    }
+                                    else
+                                    {
+                                        jQuery(element).val(field.value);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    jQuery('#mgLoader').hide();
+                });
+        });
+        jQuery('#mg-wrapper button[name="configActions"]').click(function(){
+            jQuery('#mgLoader').show();
+            jQuery.post(document.location,catchData(jQuery(this).val()),function(json){
+                var data = parseJSON(json);
+                if(data.alertsucces || data.alerterror)
+                {
+                    if(data.alertsucces)
+                    {
+                        jQuery('#mg-wrapper .alert-success').text(data.alertsucces);
+                        jQuery('#mg-wrapper .alert-success').show();
+                    }
+                    if(data.alerterror)
+                    {
+                        jQuery('#mg-wrapper .alert-error').text(data.alerterror);
+                        jQuery('#mg-wrapper .alert-error').show();
+                    }
+                    jQuery('html, body').animate({scrollTop:'400px'}, 'fast');
+                }
+                if(data.goToTab)
+                {
+                    window.location.href ="configproducts.php?action=edit&id=<?php echo $idProduct; ?>&tab="+data.goToTab;
+                    return;
+                }
+                jQuery('#mgLoader').hide();
+            });
+        });
+        jQuery('#mg-wrapper').parents('form').submit(function(event){
+            if(allow)
+            {
+                event.preventDefault();
+                jQuery('#mgLoader').show();
+                jQuery.post(document.location,catchData('saveSettings'),function(){
+                    allow = false;
+                    jQuery('#mg-wrapper').parents('form').submit();
+                });
+            }
+        });
+    });
+</script>

@@ -1,0 +1,13 @@
+<packet version="4.0.0" id="2">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzpenvm</target>
+    <data>
+        <vzpenvm>
+            <destroy>
+                <eid><?php echo $hostID ?></eid>
+            </destroy>
+        </vzpenvm>
+    </data>
+</packet>

@@ -1,0 +1,17 @@
+<packet version="4.0.0" id="4">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>vzasample_manager</target>
+    <data>
+        <vzasample_manager>
+            <?php if(isset($templateID)): ?>
+                <get>
+                    <id><?php echo $templateID; ?></id>
+                </get>
+            <?php else: ?>
+                <get/>
+            <?php endif; ?>
+        </vzasample_manager>
+    </data>
+</packet>

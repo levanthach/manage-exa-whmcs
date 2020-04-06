@@ -1,0 +1,7 @@
+<div class="control-group" xmlns="http://www.w3.org/1999/html" <?php if($hide):?>style="display:none;"<?php endif;?>>
+    <label class="control-label" for="config_field_<?php echo $name; ?>"><?php echo $label; ?></label>
+    <div class="controls">
+        <textarea id="config_field_<?php echo $name; ?>" data-name="<?php echo $name; ?>" <?php if($depends):?>class="depends"<?php endif;?>><?php echo $value; ?></textarea>
+        <span class="help-inline"><?php echo $description; ?></span>
+    </div>
+</div>

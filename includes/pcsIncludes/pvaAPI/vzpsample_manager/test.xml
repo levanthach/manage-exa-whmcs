@@ -1,0 +1,38 @@
+<packet xmlns:ns2="http://www.swsoft.com/webservices/vzp/4.0.0/vzptypes" xmlns:ns1="http://www.swsoft.com/webservices/vzl/4.0.0/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timeout_limit="2147483647" uid="" priority="0" time="2013-12-31T10:54:04+0000" type="2" id="nl5vvqfms1aaagjucougts6hssejaaaa" version="4.5.0" log="on">
+    <target>vzpsample_manager</target>
+    <dst>
+        <host>f71297f1-281a-b74a-beb4-858991c8b01f</host>
+    </dst>
+    <data>
+        <vzpsample_manager>
+            <set>
+                <id>42f34a2d-6e32-4187-8e37-89652ec21b41</id>
+                <sample>
+                    <virtual_config>
+                        <device_list>
+                            <device xsi:type="ns2:vm_hard_disk_device">
+                                <is_bootable/>
+                                <is_boot_in_use/>
+                                <boot_sequence_index>0</boot_sequence_index>
+                                <enabled>1</enabled>
+                                <connected>1</connected>
+                                <emulation_type>1</emulation_type>
+                                <sys_name>/var/parallels/Template of VDC9_jkghjghjghjg(2).pvm/harddisk1.hdd</sys_name>
+                                <interface_type>2</interface_type>
+                                <stack_index>0</stack_index>
+                                <passthrough></passthrough>
+                                <socket_mode></socket_mode>
+                                <bound_adapter_name></bound_adapter_name>
+                                <bound_adapter_index></bound_adapter_index>
+                                <adapter_type></adapter_type>
+                                <size>3079</size>
+                                <splitted></splitted>
+                                <disk_type>1</disk_type>
+                            </device>
+                        </device_list>
+                    </virtual_config>
+                </sample>
+            </set>
+        </vzpsample_manager>
+    </data>
+</packet>

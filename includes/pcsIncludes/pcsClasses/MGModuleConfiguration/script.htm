@@ -1,0 +1,11 @@
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('#customConfigOptions').parentsUntil('table').hide();
+        jQuery('#customConfigOptions').parents('table').after('<link href="../includes/pcsIncludes/pcsClasses/MGModuleConfiguration/style.css" rel="stylesheet">');
+        jQuery('#customConfigOptions').parents('table').after('<div id="mg-wrapper"><div class="loader"><img src="../includes/pcsIncludes/pcsClasses/MGModuleConfiguration/ajax-loader.gif" /></div></div>');
+        jQuery.post(document.location,{configurationAction:'loadPage','serverGroup':jQuery("select[name='servergroup']").val()},function(code){
+            jQuery('#mg-wrapper').remove();
+            jQuery('#customConfigOptions').parents('table').after(code);
+        });
+    });
+</script>

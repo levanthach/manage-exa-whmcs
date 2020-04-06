@@ -1,0 +1,32 @@
+<packet version="4.0.0" >
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>relocator</target>
+    <data>
+        <relocator>
+            <migrate_v2v>
+                <eid_list>
+                    <eid><?php echo $hostID; ?></eid>
+                </eid_list>
+                <dst>
+                    <protocol><?php echo strtoupper($protocol); ?></protocol>
+                    <address><?php echo $address; ?></address>
+                    <login>
+                        <name><?php echo base64_encode($username); ?></name>
+                        <realm>00000000-0000-0000-0000-000000000000</realm>
+                    </login>
+                    <password><?php echo base64_encode($password); ?></password>
+                    <port><?php echo $port; ?></port>
+                </dst>
+                <?php if($isVirtuoozo): ?>
+                    <options/>
+                <?php else: ?>
+                    <options>
+                        <type>1</type>
+                    </options>
+                <?php endif; ?>
+            </migrate_v2v>
+        </relocator>
+    </data>
+</packet>

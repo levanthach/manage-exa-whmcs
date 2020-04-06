@@ -1,0 +1,18 @@
+<packet xmlns:ns1="http://www.swsoft.com/webservices/vza/4.0.0/vzatypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.0.0">
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>  
+    <target>vzapackagem</target>
+    <data>
+        <vzapackagem>
+            <get_info>
+                <packages>
+                    <package xsi:type="ns1:package_vztemplateType">
+                        <ns1:name><?php echo $templateName; ?></ns1:name>
+                        <os_template>1</os_template>
+                    </package>
+                </packages>
+            </get_info>
+        </vzapackagem>
+    </data>
+</packet>

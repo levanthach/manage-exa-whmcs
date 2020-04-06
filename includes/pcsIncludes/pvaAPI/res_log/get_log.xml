@@ -1,0 +1,22 @@
+<packet version="4.0.0" >
+    <dst>
+        <host><?php echo $nodeID; ?></host>
+    </dst>
+    <target>res_log</target>
+    <data>
+        <res_log>
+            <get_log>
+                <eid><?php echo $hostID ?></eid>
+                <start_time><?php echo $start; ?></start_time>
+                <end_time><?php echo $stop; ?></end_time>
+                <class>
+                    <name><?php echo $counter; ?></name>
+                </class>
+                <period><?php if($peroid) echo $peroid; else echo '86400'; ?></period>
+                <?php if(isset($records))if($records): ?>
+                    <records><?php echo $records; ?></records>
+                <?php endif;?>
+            </get_log>
+        </res_log>
+    </data>
+</packet>
